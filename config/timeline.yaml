@@ -237,8 +237,8 @@ presets:
     periods:
       morning_briefing:
         name: "到岗速览"
-        start: "09:00"
-        end: "11:00"
+        start: "07:00"
+        end: "12:00"
         analyze: true              # AI 分析当前热点
         ai_mode: "current"         # AI 分析当前榜单
         push: true                 # 到岗后看当前热点
@@ -247,17 +247,18 @@ presets:
 
       noon_update:
         name: "午间热点"
-        start: "13:00"
-        end: "15:00"
+        start: "12:00"
+        end: "17:00"
+        analyze: true              # AI 分析当前热点
+        ai_mode: "current"         # AI 分析当前榜单
         push: true                 # 午间推送当前在榜热点
         report_mode: "current"     # 当前在榜的新闻
-        # analyze 继承 default: false → 午间不做 AI 分析，节省 API
-        # once 继承 default（push: true）→ 只推一次
+        # once 继承 default（analyze: true, push: true）→ 只推/分析一次
 
       closing_summary:
         name: "收工汇总"
         start: "17:00"
-        end: "19:00"
+        end: "21:00"
         analyze: true              # AI 做全天汇总分析
         ai_mode: "daily"           # AI 也分析全天内容
         push: true                 # 下班前推送当日完整汇总
@@ -266,8 +267,9 @@ presets:
 
       weekend_free:
         name: "周末自由"
-        start: "08:00"
+        start: "06:00"
         end: "23:00"
+        analyze: true              # AI 分析当前榜单
         ai_mode: "current"         # AI 分析当前榜单
         push: true                 # 有新增就推送
         report_mode: "incremental" # 增量模式：有新增才推，没有就安静
