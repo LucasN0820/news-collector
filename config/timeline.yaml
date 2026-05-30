@@ -459,21 +459,21 @@ custom:
       # once 继承 default → 只推/分析一次
 
     weekend_briefing:
-      name: "周末速览"
-      start: "09:00"
+      name: "周末早报"
+      start: "08:00"
       end: "12:00"
       analyze: true
       ai_mode: "daily"
       push: true
-      report_mode: "daily"         # 周末早间汇总一次
+      report_mode: "daily"         # 早间汇总
       # once 继承 default → 只推/分析一次
 
-    weekend_free:
-      name: "周末自由"
-      start: "12:00"
+    weekend_evening:
+      name: "周末晚间"
+      start: "18:00"
       end: "22:00"
       push: true
-      report_mode: "incremental"   # 有新增才推
+      report_mode: "incremental"   # 新增才推
       once:
         analyze: false
         push: false                # 有新增就推，不限制
@@ -485,7 +485,7 @@ custom:
     workday:
       periods: ["night_quiet", "pre_market", "intraday", "after_market"]
     weekend:
-      periods: ["night_quiet", "weekend_briefing", "weekend_free"]
+      periods: ["night_quiet", "weekend_briefing", "weekend_evening"]
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   # 周映射（1=周一 ... 7=周日）
