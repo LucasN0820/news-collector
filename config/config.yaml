@@ -38,7 +38,7 @@ app:
 # ===============================================================
 schedule:
   enabled: true # 是否启用调度系统（true=启用, false=关闭，默认关闭）
-  preset: "office_hours" # 预设模板名称（见上方说明）
+  preset: "custom" # 预设模板名称（见上方说明）
 
 # ===============================================================
 # 2. 数据源 - 热榜平台
@@ -115,7 +115,7 @@ rss:
 # ===============================================================
 report:
   mode:
-    "daily" # 报告模式（开启 schedule 后作为默认值，会被 timeline 时段覆盖）
+    "incremental" # 报告模式（开启 schedule 后作为默认值，会被 timeline 时段覆盖）
     # daily = 当日汇总，按时推送当天所有匹配新闻（会包含之前推过的）
     # current = 当前榜单，按时推送当前在榜的匹配新闻（持续在榜的每次都出现）
     # incremental = 增量监控，只推送新增内容，零重复（没有新增时不推送）
@@ -203,15 +203,8 @@ display:
     standalone: true # 独立展示区：完整热榜/RSS，不受关键词过滤（true=显示, false=隐藏）
     ai_analysis: true # AI 分析区域（true=显示, false=隐藏）
   standalone:
-    platforms: [
-        "wallstreetcn-hot",
-        "toutiao",
-        "cls-hot",
-        "baidu",
-        "thepaper",
-        "ifeng",
-      ] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
-    rss_feeds: ["yahoo-finance", "hacker-news", "ruanyifeng"] # RSS 源 ID 列表（如 ["hacker-news"]）
+    platforms: ["wallstreetcn-hot", "cls-hot"] # 仅保留金融垂直平台，去噪
+    rss_feeds: ["yahoo-finance"] # 仅保留财经 RSS
     max_items: 20 # 每个源最多展示条数（0=不限制）
 
 # ===============================================================
